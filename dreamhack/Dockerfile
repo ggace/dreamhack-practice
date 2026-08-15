@@ -1,23 +1,19 @@
-FROM ubuntu:22.04@sha256:2b7412e6465c3c7fc5bb21d3e6f1917c167358449fecac8176c6e496e5c1f05f
+FROM ubuntu:22.04@sha256:340d9b015b194dc6e2a13938944e0d016e57b9679963fdeb9ce021daac430221
 
-ENV user petpals
-ENV chall_port 31337
+RUN apt update
+RUN apt-get install -y socat adduser
 
-RUN apt-get update
-RUN apt-get -y install socat
+RUN adduser -u 1337 pwn
 
-RUN adduser $user
+WORKDIR /home/pwn
 
-ADD ./deploy/flag /home/$user/flag
-ADD ./deploy/$user /home/$user/$user
+COPY ./flag ./flag
+COPY ./deploy/prob ./prob
 
-RUN chown root:$user /home/$user/flag
-RUN chown root:$user /home/$user/$user
+RUN chmod 644 ./flag
+RUN chmod 755 ./prob
 
-RUN chmod 755 /home/$user/$user
-RUN chmod 440 /home/$user/flag
+USER pwn
 
-WORKDIR /home/$user
-USER $user
-EXPOSE $chall_port
-CMD socat -T 90 TCP-LISTEN:$chall_port,reuseaddr,fork EXEC:/home/$user/$user
+EXPOSE 8080
+CMD socat TCP-LISTEN:8080,reuseaddr,fork EXEC:./prob,stderr
