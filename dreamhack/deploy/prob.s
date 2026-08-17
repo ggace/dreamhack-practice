@@ -108,7 +108,7 @@ main: # *
    0x555555555958:      pop    rbp
    0x555555555959:      ret
 
-0x555555555346: # func1
+0x555555555346: # func1 * 
    0x555555555346:      endbr64
    0x55555555534a:      push   rbp
    0x55555555534b:      mov    rbp,rsp
@@ -146,7 +146,7 @@ main: # *
    0x5555555553d3:      mov    edi,0x100
    0x5555555553d8:      call   0x555555555140 <malloc@plt>
    0x5555555553dd:      mov    QWORD PTR [rbx+0x18],rax
-   0x5555555553e1:      lea    rax,[rip+0xc39]        # 0x555555556021
+   0x5555555553e1:      lea    rax,[rip+0xc39]        # 0x555555556021 "name size > "
    0x5555555553e8:      mov    rdi,rax
    0x5555555553eb:      mov    eax,0x0
    0x5555555553f0:      call   0x555555555110 <printf@plt>
@@ -177,7 +177,7 @@ main: # *
    0x555555555462:      mov    edx,DWORD PTR [rbp-0x1c]
    0x555555555465:      movsxd rdx,edx
    0x555555555468:      mov    QWORD PTR [rax+0x8],rdx
-   0x55555555546c:      lea    rax,[rip+0xbbb]        # 0x55555555602e
+   0x55555555546c:      lea    rax,[rip+0xbbb]        # 0x55555555602e "name > "
    0x555555555473:      mov    rdi,rax
    0x555555555476:      mov    eax,0x0
    0x55555555547b:      call   0x555555555110 <printf@plt>
@@ -196,7 +196,7 @@ main: # *
    0x5555555554b7:      mov    rsi,rax
    0x5555555554ba:      mov    edi,0x0
    0x5555555554bf:      call   0x555555555120 <read@plt>
-   0x5555555554c4:      lea    rax,[rip+0xb6b]        # 0x555555556036
+   0x5555555554c4:      lea    rax,[rip+0xb6b]        # 0x555555556036 "content > "
    0x5555555554cb:      mov    rdi,rax
    0x5555555554ce:      mov    eax,0x0
    0x5555555554d3:      call   0x555555555110 <printf@plt>
@@ -230,7 +230,7 @@ main: # *
    0x555555555547:      push   rbp
    0x555555555548:      mov    rbp,rsp
    0x55555555554b:      sub    rsp,0x10
-   0x55555555554f:      lea    rax,[rip+0xab2]        # 0x555555556008
+   0x55555555554f:      lea    rax,[rip+0xab2]        # 0x555555556008 "idx > "
    0x555555555556:      mov    rdi,rax
    0x555555555559:      mov    eax,0x0
    0x55555555555e:      call   0x555555555110 <printf@plt>
@@ -244,7 +244,7 @@ main: # *
    0x555555555584:      mov    eax,DWORD PTR [rdx+rax*1]
    0x555555555587:      test   eax,eax
    0x555555555589:      je     0x55555555559a
-   0x55555555558b:      lea    rax,[rip+0xaaf]        # 0x555555556041
+   0x55555555558b:      lea    rax,[rip+0xaaf]        # 0x555555556041 "[!] Already deleted!"
    0x555555555592:      mov    rdi,rax
    0x555555555595:      call   0x5555555550f0 <puts@plt>
    0x55555555559a:      mov    eax,DWORD PTR [rbp-0x4]
@@ -284,7 +284,7 @@ main: # *
    0x555555555632:      mov    rax,QWORD PTR [rdx+rax*1]
    0x555555555636:      mov    rdi,rax
    0x555555555639:      call   0x5555555550e0 <free@plt>
-   0x55555555563e:      lea    rax,[rip+0xa11]        # 0x555555556056
+   0x55555555563e:      lea    rax,[rip+0xa11]        # 0x555555556056 "[*] Delete success!"
    0x555555555645:      mov    rdi,rax
    0x555555555648:      call   0x5555555550f0 <puts@plt>
    0x55555555564d:      mov    eax,DWORD PTR [rbp-0x4]
@@ -309,7 +309,7 @@ main: # *
    0x55555555568b:      push   rbp
    0x55555555568c:      mov    rbp,rsp
    0x55555555568f:      sub    rsp,0x10
-   0x555555555693:      lea    rax,[rip+0x96e]        # 0x555555556008
+   0x555555555693:      lea    rax,[rip+0x96e]        # 0x555555556008 "idx > "
    0x55555555569a:      mov    rdi,rax
    0x55555555569d:      mov    eax,0x0
    0x5555555556a2:      call   0x555555555110 <printf@plt>
@@ -323,7 +323,7 @@ main: # *
    0x5555555556c8:      mov    eax,DWORD PTR [rdx+rax*1]
    0x5555555556cb:      test   eax,eax
    0x5555555556cd:      je     0x5555555556e3
-   0x5555555556cf:      lea    rax,[rip+0x994]        # 0x55555555606a
+   0x5555555556cf:      lea    rax,[rip+0x994]        # 0x55555555606a "[!] Already deleted note."
    0x5555555556d6:      mov    rdi,rax
    0x5555555556d9:      call   0x5555555550f0 <puts@plt>
    0x5555555556de:      jmp    0x5555555557ab
@@ -334,11 +334,11 @@ main: # *
    0x5555555556f7:      mov    rax,QWORD PTR [rdx+rax*1]
    0x5555555556fb:      test   rax,rax
    0x5555555556fe:      jne    0x555555555714
-   0x555555555700:      lea    rax,[rip+0x97d]        # 0x555555556084
+   0x555555555700:      lea    rax,[rip+0x97d]        # 0x555555556084 "[!] Not exist note."
    0x555555555707:      mov    rdi,rax
    0x55555555570a:      call   0x5555555550f0 <puts@plt>
    0x55555555570f:      jmp    0x5555555557ab
-   0x555555555714:      lea    rax,[rip+0x913]        # 0x55555555602e
+   0x555555555714:      lea    rax,[rip+0x913]        # 0x55555555602e "name > "
    0x55555555571b:      mov    rdi,rax
    0x55555555571e:      mov    eax,0x0
    0x555555555723:      call   0x555555555110 <printf@plt>
@@ -356,7 +356,7 @@ main: # *
    0x55555555575c:      mov    rsi,rax
    0x55555555575f:      mov    edi,0x0
    0x555555555764:      call   0x555555555120 <read@plt>
-   0x555555555769:      lea    rax,[rip+0x8c6]        # 0x555555556036
+   0x555555555769:      lea    rax,[rip+0x8c6]        # 0x555555556036 "content > "
    0x555555555770:      mov    rdi,rax
    0x555555555773:      mov    eax,0x0
    0x555555555778:      call   0x555555555110 <printf@plt>
@@ -378,7 +378,7 @@ main: # *
    0x5555555557b1:      push   rbp
    0x5555555557b2:      mov    rbp,rsp
    0x5555555557b5:      sub    rsp,0x10
-   0x5555555557b9:      lea    rax,[rip+0x848]        # 0x555555556008
+   0x5555555557b9:      lea    rax,[rip+0x848]        # 0x555555556008 "idx > "
    0x5555555557c0:      mov    rdi,rax
    0x5555555557c3:      mov    eax,0x0
    0x5555555557c8:      call   0x555555555110 <printf@plt>
@@ -392,7 +392,7 @@ main: # *
    0x5555555557ee:      mov    eax,DWORD PTR [rdx+rax*1]
    0x5555555557f1:      test   eax,eax
    0x5555555557f3:      je     0x555555555809
-   0x5555555557f5:      lea    rax,[rip+0x86e]        # 0x55555555606a
+   0x5555555557f5:      lea    rax,[rip+0x86e]        # 0x55555555606a  "[!] Already deleted note."
    0x5555555557fc:      mov    rdi,rax
    0x5555555557ff:      call   0x5555555550f0 <puts@plt>
    0x555555555804:      jmp    0x55555555589d
@@ -403,7 +403,7 @@ main: # *
    0x55555555581d:      mov    rax,QWORD PTR [rdx+rax*1]
    0x555555555821:      test   rax,rax
    0x555555555824:      jne    0x555555555837
-   0x555555555826:      lea    rax,[rip+0x857]        # 0x555555556084
+   0x555555555826:      lea    rax,[rip+0x857]        # 0x555555556084 "[!] Not exist note."
    0x55555555582d:      mov    rdi,rax
    0x555555555830:      call   0x5555555550f0 <puts@plt>
    0x555555555835:      jmp    0x55555555589d
@@ -414,7 +414,7 @@ main: # *
    0x55555555584b:      mov    rax,QWORD PTR [rdx+rax*1]
    0x55555555584f:      mov    rax,QWORD PTR [rax+0x10]
    0x555555555853:      mov    rsi,rax
-   0x555555555856:      lea    rax,[rip+0x83b]        # 0x555555556098
+   0x555555555856:      lea    rax,[rip+0x83b]        # 0x555555556098 "name : %s\n"
    0x55555555585d:      mov    rdi,rax
    0x555555555860:      mov    eax,0x0
    0x555555555865:      call   0x555555555110 <printf@plt>
@@ -425,9 +425,74 @@ main: # *
    0x55555555587e:      mov    rax,QWORD PTR [rdx+rax*1]
    0x555555555882:      mov    rax,QWORD PTR [rax+0x18]
    0x555555555886:      mov    rsi,rax
-   0x555555555889:      lea    rax,[rip+0x813]        # 0x5555555560a3
+   0x555555555889:      lea    rax,[rip+0x813]        # 0x5555555560a3 "content : %s\n"
    0x555555555890:      mov    rdi,rax
    0x555555555893:      mov    eax,0x0
    0x555555555898:      call   0x555555555110 <printf@plt>
    0x55555555589d:      leave
    0x55555555589e:      ret
+
+0x55555555528e:
+   0x55555555528e:      endbr64
+   0x555555555292:      push   rbp
+   0x555555555293:      mov    rbp,rsp
+   0x555555555296:      sub    rsp,0x20
+   0x55555555529a:      mov    rax,QWORD PTR fs:0x28
+   0x5555555552a3:      mov    QWORD PTR [rbp-0x8],rax
+   0x5555555552a7:      xor    eax,eax
+   0x5555555552a9:      lea    rax,[rbp-0x12]
+   0x5555555552ad:      mov    edx,0xa
+   0x5555555552b2:      mov    rsi,rax
+   0x5555555552b5:      mov    edi,0x0
+   0x5555555552ba:      call   0x555555555120 <read@plt>
+   0x5555555552bf:      lea    rax,[rbp-0x12]
+   0x5555555552c3:      mov    rdi,rax
+   0x5555555552c6:      call   0x555555555160 <atoi@plt>
+   0x5555555552cb:      mov    rdx,QWORD PTR [rbp-0x8]
+   0x5555555552cf:      sub    rdx,QWORD PTR fs:0x28
+   0x5555555552d8:      je     0x5555555552df
+   0x5555555552da:      call   0x555555555100 <__stack_chk_fail@plt>
+   0x5555555552df:      leave
+   0x5555555552e0:      ret
+
+0x555555555269:
+   0x555555555269:      endbr64
+   0x55555555526d:      push   rbp
+   0x55555555526e:      mov    rbp,rsp
+   0x555555555271:      mov    DWORD PTR [rbp-0x4],edi
+   0x555555555274:      cmp    DWORD PTR [rbp-0x4],0x0
+   0x555555555278:      js     0x555555555280
+   0x55555555527a:      cmp    DWORD PTR [rbp-0x4],0xf
+   0x55555555527e:      jle    0x555555555287
+   0x555555555280:      mov    eax,0x0
+   0x555555555285:      jmp    0x55555555528c
+   0x555555555287:      mov    eax,0x1
+   0x55555555528c:      pop    rbp
+   0x55555555528d:      ret
+
+0x5555555552e1:
+   0x5555555552e1:      endbr64
+   0x5555555552e5:      push   rbp
+   0x5555555552e6:      mov    rbp,rsp
+   0x5555555552e9:      sub    rsp,0x30
+   0x5555555552ed:      mov    rax,QWORD PTR fs:0x28
+   0x5555555552f6:      mov    QWORD PTR [rbp-0x8],rax
+   0x5555555552fa:      xor    eax,eax
+   0x5555555552fc:      lea    rax,[rbp-0x20]
+   0x555555555300:      mov    edx,0x16
+   0x555555555305:      mov    rsi,rax
+   0x555555555308:      mov    edi,0x0
+   0x55555555530d:      call   0x555555555120 <read@plt>
+   0x555555555312:      lea    rax,[rbp-0x20]
+   0x555555555316:      mov    edx,0xa
+   0x55555555531b:      mov    esi,0x0
+   0x555555555320:      mov    rdi,rax
+   0x555555555323:      call   0x555555555130 <strtoull@plt>
+   0x555555555328:      mov    QWORD PTR [rbp-0x28],rax
+   0x55555555532c:      mov    rax,QWORD PTR [rbp-0x28]
+   0x555555555330:      mov    rdx,QWORD PTR [rbp-0x8]
+   0x555555555334:      sub    rdx,QWORD PTR fs:0x28
+   0x55555555533d:      je     0x555555555344
+   0x55555555533f:      call   0x555555555100 <__stack_chk_fail@plt>
+   0x555555555344:      leave
+   0x555555555345:      ret
